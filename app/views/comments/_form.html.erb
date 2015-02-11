@@ -1,0 +1,15 @@
+<%= form_for ([@track, @track.comments.build]) do |f| %>
+
+  <p>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

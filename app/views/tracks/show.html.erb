@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '< Back to tracks', tracks_path %>
+  <br>
+  
+  <p><%= image_tag @track.art_work.url.to_s , width: 200 %></p>
+  <p><%= @track.title %></p>
+  <p><%= audio_tag @track.music, controls: true, class: 'song-player' %></p>
+  <p><%= @track.genre %></p>
+  <p><%= @track.description %></p>
+  <p><%= @track.user.email %></p>
+  
+  <p>Submitted <%= time_ago_in_words (@track.created_at) %> Ago
+    <% if user_signed_in? %>
+      | <%= link_to 'Edit', edit_track_path(@track) %> 
+      | <%= link_to 'Delete', @track, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </p>
+  <br>
+<div class="comments">
+    <p><%= @track.comments.count %> Comments</p>
+    <%= render @track.comments %>
+  <% if user_signed_in? %>
+    <p> Add a comment: </p>
+    <%= render "comments/form" %>
+  <% end %>
+</div>
