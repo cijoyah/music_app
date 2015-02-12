@@ -1,16 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @track.art_work.url, width: 200 %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><%= @track.title %></td>
+              </tr>
+              <tr>
+                <td><%= audio_tag @track.music, controls: true, class: 'song-player' %></td>
+              </tr>
+              <tr>
+                <td><%= @track.genre %></td>
+              </tr>
+              <tr>
+                <td><%= @track.description %></td>
+              </tr>
+              <tr>
+                <td><%= @track.user.email %></td>
+              </tr>
+              <tr>
+                <td>Submitted <%= time_ago_in_words (@track.created_at) %> Ago </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to '< Back to tracks', tracks_path %>
-  <br>
-  
-  <p><%= image_tag @track.art_work.url.to_s , width: 200 %></p>
-  <p><%= @track.title %></p>
-  <p><%= audio_tag @track.music, controls: true, class: 'song-player' %></p>
-  <p><%= @track.genre %></p>
-  <p><%= @track.description %></p>
-  <p><%= @track.user.email %></p>
-  
-  <p>Submitted <%= time_ago_in_words (@track.created_at) %> Ago
     <% if user_signed_in? %>
       | <%= link_to 'Edit', edit_track_path(@track) %> 
       | <%= link_to 'Delete', @track, method: :delete, data: { confirm: 'Are you sure?' } %>

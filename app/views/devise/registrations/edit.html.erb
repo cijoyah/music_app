@@ -8,6 +8,47 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "off" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+   <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autocomplete: "off" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autocomplete: "off" %>
+  </div>
+
+   <div class="social_links">
+    <br><%= f.label :facebook %><br>
+    <%= f.text_field :facebook, autocomplete: "off" %>
+    <br><%= f.label :twitter %><br>
+    <%= f.text_field :twitter, autocomplete: "off" %>
+    <br><%= f.label :instagram %><br>
+    <%= f.text_field :instagram, autocomplete: "off" %>
+    <br><%= f.label :youtube %><br>
+    <%= f.text_field :youtube, autocomplete: "off" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :webiste %><br />
+    <%= f.text_field :website, autocomplete: "off" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rmagick'
 gem 'devise'
 gem 'carrierwave'
+gem 'bootstrap-sass', '~> 3.3.3'
 
 
 # Use ActiveModel has_secure_password
