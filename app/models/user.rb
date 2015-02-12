@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :tracks
 
   mount_uploader :avatar, AvatarUploader
+
+  def admin?
+    self.role == 'admin'
+  end
 end

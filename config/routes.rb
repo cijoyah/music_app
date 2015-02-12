@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  resources :users
   resources :tracks do
     resources :comments #nested route
   end

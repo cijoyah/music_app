@@ -1,8 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-4">
-        <%= image_tag @track.art_work.url, width: 200 %>
+      <div class="col-md-6">
+        <%= image_tag(@track.art_work.show.url) %>
+      </div>
+      <div class="col-md-6">
         <div class="table-responsive">
           <table class="table">
             <tbody>
@@ -19,30 +21,27 @@
                 <td><%= @track.description %></td>
               </tr>
               <tr>
-                <td><%= @track.user.email %></td>
-              </tr>
+                <td><%= @track.user.email %>,
+                Submitted <%= time_ago_in_words (@track.created_at) %> Ago 
+                  <% if @track.user == current_user %>
+                    <%= link_to 'Edit', edit_track_path(@track) %> |
+                    <%= link_to 'Delete', @track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
+                </tr>
               <tr>
-                <td>Submitted <%= time_ago_in_words (@track.created_at) %> Ago </td>
-              </tr>
             </tbody>
           </table>
+          <div class="comments">
+            <p><%= @track.comments.count %> Comments</p>
+              <%= render @track.comments %>
+            <% if user_signed_in? %>
+              <p> Add a comment: </p>
+              <%= render "comments/form" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-    <% if user_signed_in? %>
-      | <%= link_to 'Edit', edit_track_path(@track) %> 
-      | <%= link_to 'Delete', @track, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </p>
-  <br>
-<div class="comments">
-    <p><%= @track.comments.count %> Comments</p>
-    <%= render @track.comments %>
-  <% if user_signed_in? %>
-    <p> Add a comment: </p>
-    <%= render "comments/form" %>
-  <% end %>
-</div>

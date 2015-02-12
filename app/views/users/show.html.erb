@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag(@user.avatar.show.url) %>
+        <%= @user.name %>
+        <ul class:"social-links">
+          <li class:"twitter"><a href="wwww.twitter.com">Twitter</a></li>
+          <li class:"facebook"><a href="www.facebook.com">Facebook</a></li>
+          <li class:"youtube"><a href="www.youtube.com">Youtube</a></li>
+          <li class:"instagram"><a href="www.instagram.com">Instagram</a></li> 
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <% @user.tracks.each do |track| %>
+          <div class="panel">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <%= link_to (image_tag track.art_work.url), track %>
+                </div>
+                <div class="col-md-9"> 
+                  <h2><%= track.title %></h2>
+                  <%= audio_tag track.music, controls: true, class: 'index-song-player song-player'%>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<% if can? :modify, @user %>
+  link_to edit
+  link_to delete
+  
+<% end %>

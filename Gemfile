@@ -26,6 +26,8 @@ gem 'rmagick'
 gem 'devise'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'fog'
+gem 'cancan'
 
 
 # Use ActiveModel has_secure_password

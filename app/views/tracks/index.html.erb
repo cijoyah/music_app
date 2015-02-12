@@ -1,11 +1,36 @@
-<% if user_signed_in? %>
-  <div class="row">
-    <% @tracks.each do |track| %>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <%= link_to (image_tag track.art_work.url, width: 200, class:'image'), track %>
-        </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row"> 
+      <div class="col-md-12">
+        <% if user_signed_in? %>
+          <% @tracks.each do |track| %>
+            <div class="panel">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= link_to (image_tag track.art_work.url, width: 200, class:'image'), track %>
+                  </div>
+                  <div class="col-md-9"> 
+                    <h2><%= track.title %></h2>
+                    <%= audio_tag track.music, controls: true, class: 'index-song-player song-player'%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+   
+    
+
+
+
+
+
+
+
+
+
