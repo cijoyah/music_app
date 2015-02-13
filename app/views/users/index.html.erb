@@ -3,7 +3,7 @@
     <% @users.each do |user| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-          <%= link_to (image_tag user.avatar.url, width: 200, class:'image'), user %>
+          <%= link_to (image_tag user.avatar.url, class:'image'), user %>
         </div>
       </div>
     <% end %>

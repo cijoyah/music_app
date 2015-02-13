@@ -4,12 +4,6 @@
       <div class="col-md-6">
         <%= image_tag(@user.avatar.show.url) %>
         <%= @user.name %>
-        <ul class:"social-links">
-          <li class:"twitter"><a href="wwww.twitter.com">Twitter</a></li>
-          <li class:"facebook"><a href="www.facebook.com">Facebook</a></li>
-          <li class:"youtube"><a href="www.youtube.com">Youtube</a></li>
-          <li class:"instagram"><a href="www.instagram.com">Instagram</a></li> 
-        </ul>
       </div>
       <div class="col-md-6">
         <% @user.tracks.each do |track| %>

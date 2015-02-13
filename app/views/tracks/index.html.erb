@@ -1,8 +1,15 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row"> 
-      <div class="col-md-12">
-        <% if user_signed_in? %>
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Welcome to Musiq App</h1>
+    <p>Keytar irony pug chillwave tofu, health goth craft beer freegan High Life Wes Anderson literally you probably haven't heard of them four loko dreamcatcher. High Life Truffaut Schlitz put a bird on it sartorial Bushwick. Dreamcatcher food truck stumptown fingerstache.</p>
+    <p><%= link_to "Sign Up Now!!", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row"> 
+        <div class="col-md-12">       
           <% @tracks.each do |track| %>
             <div class="panel">
               <div class="panel-body">
@@ -18,11 +25,11 @@
               </div>
             </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
    
     
 

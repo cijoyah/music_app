@@ -30,6 +30,8 @@ gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'fog'
 gem 'cancan'
+gem 'rails_admin', '~> 0.6.6'
+gem 'searchkick', '~> 0.8.6'
 gem 'rails_12factor', group: :production
 
 

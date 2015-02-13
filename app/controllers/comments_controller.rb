@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @track = Track.find(params[:track_id])
-    @comment = @track.comments.create(params[:comment].permit(:content, :rating))
+    @comment = @track.comments.create(params[:comment].permit(:content, :rating, :email))
     redirect_to track_path(@track)
   end
 
