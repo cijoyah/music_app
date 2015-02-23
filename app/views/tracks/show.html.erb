@@ -21,7 +21,7 @@
                 <td><%= @track.description %></td>
               </tr>
               <tr>
-                <td><%= @track.user.email %>,
+                <td><%= @track.user.email %>
                 Submitted <%= time_ago_in_words (@track.created_at) %> Ago 
                   <% if @track.user == current_user %>
                     <%= link_to 'Edit', edit_track_path(@track) %> |
@@ -33,7 +33,7 @@
           </table>
           <div class="comments">
             <p><%= @track.comments.count %> Comments</p>
-              <%= render @track.comments %>
+            <%= render @track.comments %>
             <% if user_signed_in? %>
               <p> Add a comment: </p>
               <%= render "comments/form" %>

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  root 'tracks#index'
   devise_for :users
   resources :users
   resources :tracks do
     resources :comments #nested route
   end
-  root 'tracks#index'
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
