@@ -1,0 +1,35 @@
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-6
+        = image_tag(@track.art_work.show.url)
+      .col-md-6
+        .table-responsive
+          %table.table
+            %tbody
+              %tr
+                %td= @track.title
+              %tr
+                %td= audio_tag @track.music, controls: true, class: 'song-player'
+              %tr
+                %td= @track.genre
+              %tr
+                %td= @track.description
+              %tr
+                %td
+                  = @track.user.email
+                  Submitted #{time_ago_in_words (@track.created_at)} Ago
+                  - if @track.user == current_user
+                    = link_to 'Edit', edit_track_path(@track)
+                    |
+                    \#{link_to 'Delete', @track, method: :delete, data: { confirm: 'Are you sure?' }}
+              %tr
+          .comments
+            %p
+              = @track.comments.count
+              Comments
+            = render @track.comments
+            - if user_signed_in?
+              %p Add a comment:
+              = render "comments/form"
+

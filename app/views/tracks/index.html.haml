@@ -1,0 +1,29 @@
+- if !user_signed_in?
+  .jumbotron
+    %h1 Welcome to Musiq App
+    %p Keytar irony pug chillwave tofu, health goth craft beer freegan High Life Wes Anderson literally you probably haven't heard of them four loko dreamcatcher. High Life Truffaut Schlitz put a bird on it sartorial Bushwick. Dreamcatcher food truck stumptown fingerstache.
+    %p= link_to "Sign Up Now!!", new_user_registration_path, class: "btn btn-primary btn-lg"
+- if user_signed_in?
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-12
+          - @tracks.each do |track|
+            .panel
+              .panel-body
+                .row
+                  .col-md-3
+                    = link_to (image_tag track.art_work.url, width: 200, class: 'image'), track
+                  .col-md-9
+                    %h2= track.title
+                    = audio_tag track.music, controls: true, class: 'index-song-player song-player'
+    
+
+
+
+
+
+
+
+
+

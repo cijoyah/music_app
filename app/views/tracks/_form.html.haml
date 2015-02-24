@@ -1,0 +1,33 @@
+= form_for @track do |f|
+  - if @track.errors.any?
+    #errors
+      %h2
+        = pluralize(@track.errors.count, "error")
+          prevented this track from being uploaded
+      %ul
+        - @track.errors.full_messages.each do |message|
+      %li= message
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :music
+    %br
+    = f.file_field :music
+  %p
+    = f.label :genre
+    %br
+    = f.text_field :genre
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description
+  %p
+    = f.label :art_work
+    %br
+    = f.file_field :art_work
+    = f.label :remote_art_work_url, 'or image url'
+    = f.text_field :remote_art_work_url
+  %p
+    = f.submit
